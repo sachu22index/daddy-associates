@@ -1,0 +1,147 @@
+/* ==========================================================================
+   DADDY ASSOCIATES - RESPONSIVE STYLES
+   Breakpoints:
+   - 320px / 375px / 425px: Mobile phones
+   - 768px: Tablets & small laptops
+   - 1024px: Laptops & desktops
+   - 1440px: Large widescreen displays
+   ========================================================================== */
+
+/* 1440px+ Extra Large Displays */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1320px;
+  }
+}
+
+/* 1024px to 1200px Laptops */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+}
+
+/* Tablets (<= 768px) */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 72px;
+    --container-padding: 18px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-sm {
+    padding: 36px 0;
+  }
+
+  /* Stack columns */
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust typography */
+  h1 { font-size: 2.15rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.35rem; }
+
+  /* Floating WhatsApp on mobile */
+  .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .floating-whatsapp-btn {
+    width: 54px;
+    height: 54px;
+  }
+
+  .floating-whatsapp-tooltip {
+    display: none; /* Hide floating text on mobile so it doesn't obstruct screen */
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    left: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Mobile Phones (<= 480px / 425px / 375px / 320px) */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 16px;
+    --navbar-height: 66px;
+    --announcement-height: auto;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  h1 { font-size: 1.85rem; line-height: 1.2; }
+  h2 { font-size: 1.55rem; }
+  h3 { font-size: 1.25rem; }
+  p { font-size: 0.98rem; }
+
+  .btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+
+  .btn-group-mobile-stack {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .badge {
+    font-size: 0.78rem;
+    padding: 5px 12px;
+  }
+}
+
+/* Narrowest screens (320px) */
+@media (max-width: 340px) {
+  :root {
+    --container-padding: 12px;
+  }
+
+  h1 { font-size: 1.65rem; }
+  h2 { font-size: 1.4rem; }
+
+  .btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .figma-footer-wordmark {
+    font-size: clamp(1.8rem, 8.5vw, 3rem) !important;
+  }
+
+  .filter-pill {
+    padding: 7px 12px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .figma-footer-wordmark {
+    font-size: clamp(2.2rem, 9.5vw, 4.5rem);
+  }
+
+  .filter-pills-wrap {
+    gap: 8px;
+  }
+
+  .filter-pill {
+    padding: 8px 16px;
+    font-size: 0.86rem;
+  }
+}

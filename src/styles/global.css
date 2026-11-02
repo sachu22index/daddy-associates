@@ -1,0 +1,740 @@
+/* ==========================================================================
+   DADDY ASSOCIATES - DESIGN SYSTEM & GLOBAL CSS
+   Brand Identity:
+   - Primary Navy: #101C2C
+   - Accent Warm Gold: #D9AE68
+   - Pure White: #FFFFFF
+   - Light Neutral: #F5F7FA
+   - Dark Text: #182230
+   - WhatsApp Green: #25D366
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --color-navy: #101C2C;
+  --color-navy-dark: #0A121D;
+  --color-navy-light: #1A2B42;
+  --color-navy-lighter: #263C5A;
+  
+  --color-gold: #D9AE68;
+  --color-gold-light: #E8C88E;
+  --color-gold-lighter: #F6EBD7;
+  --color-gold-dark: #B88D45;
+
+  --color-bg-light: #F5F7FA;
+  --color-bg-white: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+
+  --color-text-dark: #182230;
+  --color-text-muted: #556987;
+  --color-text-light: #F5F7FA;
+  --color-border: #E5E9F0;
+  --color-border-dark: rgba(217, 174, 104, 0.25);
+
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+  --color-whatsapp-dark: #075E54;
+
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+
+  /* Figma Event UI Kit Design Tokens (node-id: 902-15729) */
+  --color-figma-yellow: #FFE147;
+  --color-figma-yellow-hover: #F2D332;
+  --color-figma-orange: #FF5A1F;
+  --color-figma-orange-hover: #E4470F;
+  --color-figma-black: #111215;
+  --color-figma-black-muted: #27272A;
+  --color-figma-card-bg: #FFFFFF;
+  --color-figma-card-border: #EEEEEE;
+  --color-figma-bg-ivory: #FFFDF9;
+  --shadow-figma-card: 0 4px 20px rgba(17, 18, 21, 0.06);
+  --shadow-figma-hover: 0 16px 36px rgba(17, 18, 21, 0.12);
+  --shadow-figma-orange: 0 8px 24px rgba(255, 90, 31, 0.35);
+  --shadow-figma-yellow: 0 8px 24px rgba(255, 225, 71, 0.4);
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(16, 28, 44, 0.04);
+  --shadow-md: 0 6px 18px rgba(16, 28, 44, 0.08);
+  --shadow-lg: 0 16px 36px rgba(16, 28, 44, 0.12);
+  --shadow-xl: 0 24px 48px rgba(16, 28, 44, 0.16);
+  --shadow-gold: 0 8px 24px rgba(217, 174, 104, 0.3);
+  --shadow-whatsapp: 0 8px 24px rgba(37, 211, 102, 0.35);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-padding: 24px;
+  --navbar-height: 80px;
+  --announcement-height: 40px;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.85rem, 4vw, 2.65rem); }
+h3 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 0.95rem; }
+
+p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: 90px 0;
+  position: relative;
+}
+
+.section-sm {
+  padding: 50px 0;
+}
+
+.section-dark {
+  background-color: var(--color-navy);
+  color: var(--color-text-light);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: #FFFFFF;
+}
+
+.section-dark p {
+  color: #B2C0D4;
+}
+
+.section-alt {
+  background-color: #FFFFFF;
+}
+
+/* Visual Enhancements: Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background-color: var(--color-gold-lighter);
+  color: var(--color-gold-dark);
+  border: 1px solid rgba(217, 174, 104, 0.4);
+}
+
+.badge-navy {
+  background-color: rgba(16, 28, 44, 0.08);
+  color: var(--color-navy);
+  border: 1px solid rgba(16, 28, 44, 0.15);
+}
+
+.badge-gold {
+  background: linear-gradient(135deg, var(--color-gold-lighter) 0%, #fae8cc 100%);
+  color: var(--color-navy);
+  border: 1px solid var(--color-gold);
+}
+
+.badge-dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-gold-light);
+  border: 1px solid rgba(217, 174, 104, 0.3);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+}
+
+.glass-panel-dark {
+  background: rgba(26, 43, 66, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(217, 174, 104, 0.2);
+  border-radius: var(--radius-lg);
+}
+
+/* Text Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #E8C88E 0%, #D9AE68 50%, #B88D45 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #D9AE68 0%, #C4984F 100%);
+  color: #101C2C;
+  box-shadow: var(--shadow-gold);
+  border: 1px solid #E8C88E;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(217, 174, 104, 0.45);
+  background: linear-gradient(135deg, #E8C88E 0%, #D9AE68 100%);
+}
+
+.btn-navy {
+  background: var(--color-navy);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-navy-light);
+}
+
+.btn-navy:hover {
+  background: var(--color-navy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-gold-light);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+}
+
+.btn-outline:hover {
+  background: var(--color-navy);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--color-gold-light);
+  border: 2px solid var(--color-gold);
+}
+
+.btn-outline-gold:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-whatsapp);
+  border: 1px solid #43EA80;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+  background: linear-gradient(135deg, #28E06D 0%, #1BA853 100%);
+  color: #FFFFFF;
+}
+
+/* Figma Event Kit Button Variants */
+.btn-orange {
+  background: var(--color-figma-orange);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-figma-orange);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 700;
+}
+
+.btn-orange:hover {
+  background: var(--color-figma-orange-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 90, 31, 0.45);
+}
+
+.btn-black {
+  background: var(--color-figma-black);
+  color: #FFFFFF;
+  border: 1px solid #27272A;
+  font-weight: 700;
+}
+
+.btn-black:hover {
+  background: #27272A;
+  color: var(--color-figma-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-yellow {
+  background: var(--color-figma-yellow);
+  color: var(--color-figma-black);
+  border: 1px solid #EAC727;
+  font-weight: 800;
+}
+
+.btn-yellow:hover {
+  background: var(--color-figma-yellow-hover);
+  color: var(--color-figma-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-figma-yellow);
+}
+
+.btn-outline-black {
+  background: transparent;
+  color: var(--color-figma-black);
+  border: 2px solid var(--color-figma-black);
+  font-weight: 700;
+}
+
+.btn-outline-black:hover {
+  background: var(--color-figma-black);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.88rem;
+}
+
+.btn-lg {
+  padding: 16px 34px;
+  font-size: 1.1rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Figma Category Filter Pills */
+.filter-pills-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: #FFFFFF;
+  color: #18181B;
+  border: 1.5px solid #E4E4E7;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.filter-pill:hover:not(.active) {
+  border-color: #18181B;
+  color: #18181B;
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: #111215;
+  color: #FFFFFF;
+  border-color: #111215;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.filter-pill.active .pill-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.pill-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #F4F4F5;
+  color: #71717A;
+}
+
+/* Figma Badges */
+.badge-orange {
+  background-color: rgba(255, 90, 31, 0.12);
+  color: var(--color-figma-orange);
+  border: 1px solid rgba(255, 90, 31, 0.3);
+}
+
+.badge-yellow {
+  background-color: rgba(255, 225, 71, 0.35);
+  color: #7E6300;
+  border: 1px solid rgba(255, 225, 71, 0.8);
+}
+
+.badge-black {
+  background-color: #111215;
+  color: #FFFFFF;
+  border: 1px solid #27272A;
+}
+
+/* Figma Sections */
+.section-figma-yellow {
+  background-color: var(--color-figma-yellow);
+  color: var(--color-figma-black);
+}
+
+.section-figma-yellow h1,
+.section-figma-yellow h2,
+.section-figma-yellow h3,
+.section-figma-yellow h4 {
+  color: var(--color-figma-black);
+}
+
+.section-figma-yellow p {
+  color: #333333;
+}
+
+.section-figma-dark {
+  background-color: var(--color-figma-black);
+  color: #FFFFFF;
+}
+
+.section-figma-dark h1,
+.section-figma-dark h2,
+.section-figma-dark h3,
+.section-figma-dark h4 {
+  color: #FFFFFF;
+}
+
+.section-figma-dark p {
+  color: #A1A1AA;
+}
+
+/* Figma Ticket Pass Card */
+.ticket-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid #EEEEEE;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-card:hover {
+  transform: translateY(-6px);
+  border-color: #D4D4D8;
+  box-shadow: var(--shadow-figma-hover);
+}
+
+.ticket-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-divider-row {
+  position: relative;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-divider-line {
+  width: 100%;
+  border-top: 2px dashed #E4E4E7;
+}
+
+.ticket-notch-left {
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-bg-light);
+  border-radius: 50%;
+  border-right: 1.5px solid #EEEEEE;
+  z-index: 2;
+}
+
+.ticket-notch-right {
+  position: absolute;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-bg-light);
+  border-radius: 50%;
+  border-left: 1.5px solid #EEEEEE;
+  z-index: 2;
+}
+
+/* Giant Typographic Footer Wordmark */
+.figma-footer-wordmark {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: lowercase;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  font-size: clamp(3.2rem, 11vw, 8.5rem);
+  color: #FFFFFF;
+  user-select: none;
+  display: inline-block;
+}
+
+.figma-footer-wordmark span {
+  color: var(--color-figma-orange);
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.floating-whatsapp-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-whatsapp), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  transition: all var(--transition-normal);
+  position: relative;
+  border: 2px solid #FFFFFF;
+  animation: pulse-green 2.5s infinite;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.6);
+}
+
+.floating-whatsapp-tooltip {
+  background: var(--color-navy);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(217, 174, 104, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6), var(--shadow-whatsapp);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), var(--shadow-whatsapp);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), var(--shadow-whatsapp);
+  }
+}
+
+/* Scroll To Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold);
+  border: 1px solid rgba(217, 174, 104, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Cards */
+.card {
+  background: var(--color-surface-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(217, 174, 104, 0.3);
+}
+
+/* Hero Badge Glow */
+.hero-glow {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(217, 174, 104, 0.22) 0%, rgba(16, 28, 44, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
